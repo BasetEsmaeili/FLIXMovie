@@ -1,10 +1,9 @@
+
 package com.flix.movie.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.flix.movie.R
+import androidx.appcompat.app.AppCompatActivity
 import com.flix.movie.databinding.ActivityMainBinding
-
 class ActivityMain : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {

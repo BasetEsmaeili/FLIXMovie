@@ -1,3 +1,4 @@
+
 package com.flix.movie.view.base
 
 import android.os.Bundle
@@ -12,9 +13,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenStarted
 import androidx.navigation.fragment.findNavController
 import com.flix.movie.utils.NavigationCommand
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-
+@ExperimentalCoroutinesApi
 abstract class BaseFragment<D : ViewDataBinding, V : BaseViewModel> : Fragment() {
 
     private lateinit var mDataBinding: D
@@ -31,7 +33,6 @@ abstract class BaseFragment<D : ViewDataBinding, V : BaseViewModel> : Fragment()
         super.onCreate(savedInstanceState)
         mViewModel = getViewModel()
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,9 +61,6 @@ abstract class BaseFragment<D : ViewDataBinding, V : BaseViewModel> : Fragment()
                             }
                             is NavigationCommand.BackTo -> {
                                 findNavController().popBackStack(command.destinationId, false)
-                            }
-                            is NavigationCommand.ToRoot -> {
-
                             }
                         }
                     }

@@ -1,5 +1,4 @@
 package com.flix.movie
-
 import android.app.Application
 
 class ApplicationLoader : Application() {

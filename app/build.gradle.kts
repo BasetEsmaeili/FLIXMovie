@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     id("androidx.navigation.safeargs.kotlin")
+    id(Dependencies.BuildPlugins.ktlint)
 }
 
 android {
@@ -44,4 +45,24 @@ dependencies {
     implementation(Dependencies.Coroutines.android_extensions)
     implementation(Dependencies.Coroutines.viewModel_scope)
     implementation(Dependencies.Coroutines.lifeCycle_scope)
+}
+
+ktlint {
+    version.set(Dependencies.ktlint_version)
+    debug.set(true)
+    verbose.set(true)
+    android.set(true)
+    outputToConsole.set(true)
+    reporters {
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
+        reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.CHECKSTYLE)
+    }
+    ignoreFailures.set(true)
+    kotlinScriptAdditionalPaths {
+        include(fileTree("scripts/"))
+    }
+    filter {
+        exclude("**/generated/**")
+        include("**/kotlin/**")
+    }
 }

@@ -1,3 +1,4 @@
+
 package com.flix.movie.utils
 
 class SingleEvent<out T>(private val content: T) {
