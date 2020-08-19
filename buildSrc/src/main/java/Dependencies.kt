@@ -13,17 +13,30 @@ object Dependencies {
     const val ktlint_version = "0.37.2"
 
     object Android {
-        val compileSdkVersion = 30
-        val buildToolsVersion = "30.0.1"
-        val applicationId = "com.flix.movie"
-        val minSdkVersion = 21
-        val targetSdkVersion = 30
-        val versionCode = 1
-        val versionName = "1.0"
+        const val compileSdkVersion = 30
+        const val buildToolsVersion = "30.0.1"
+        const val applicationId = "com.flix.movie"
+        const val minSdkVersion = 21
+        const val targetSdkVersion = 30
+    }
+
+    object Flow {
+        
+    }
+
+    object Project {
+        const val applicationId = "com.flix.movie"
+        const val versionCode = 1
+        const val versionName = "1.0"
+        const val isMinifyEnabled = false
     }
 
     object Kotlin {
-        val kotlin_std = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        const val kotlin_std = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    }
+
+    object Repositories {
+        const val gradle = "https://plugins.gradle.org/m2/"
     }
 
     object BuildPlugins {
@@ -33,6 +46,13 @@ object Dependencies {
         const val navigation_safe_args =
             "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
         const val ktlint = "org.jlleitschuh.gradle.ktlint"
+    }
+
+
+    object ProGuards {
+        private const val proGuardsBasePath = "/settings/proguard_files/"
+        const val proguardAndroidOptimize = "proguard-android-optimize.txt"
+        const val proguardDefault = "proguard-rules.pro"
     }
 
     object AndroidSupport {
@@ -54,5 +74,14 @@ object Dependencies {
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
         val viewModel_scope = "androidx.lifecycle:lifecycle-viewmodel-ktx:$viewModel_scope_version"
         val lifeCycle_scope = "androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycle_scope_version"
+    }
+
+    object Plugins {
+        const val androidApplication = "com.android.application"
+        const val android = "android"
+        const val androidExtensions = "android.extensions"
+        const val navigationSafeArgs = "androidx.navigation.safeargs.kotlin"
+        const val java_library = "java-library"
+        const val kotlin = "kotlin"
     }
 }

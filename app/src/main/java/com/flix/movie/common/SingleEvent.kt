@@ -1,5 +1,5 @@
 
-package com.flix.movie.utils
+package com.flix.movie.common
 
 class SingleEvent<out T>(private val content: T) {
     private var isEmitted = false

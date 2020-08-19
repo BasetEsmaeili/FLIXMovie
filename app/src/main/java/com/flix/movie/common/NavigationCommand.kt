@@ -1,4 +1,4 @@
-package com.flix.movie.utils
+package com.flix.movie.common
 
 import androidx.navigation.NavDirections
 sealed class NavigationCommand {

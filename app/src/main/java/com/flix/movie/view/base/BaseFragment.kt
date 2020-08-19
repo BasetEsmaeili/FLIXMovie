@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.whenStarted
 import androidx.navigation.fragment.findNavController
-import com.flix.movie.utils.NavigationCommand
+import com.flix.movie.common.NavigationCommand
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -51,8 +51,7 @@ abstract class BaseFragment<D : ViewDataBinding, V : BaseViewModel> : Fragment()
             whenStarted {
                 mViewModel.getNavigatorLiveData().collect { event ->
                     if (event.getValue() != null) {
-                        val command = event.getValue()
-                        when (command) {
+                        when (val command = event.getValue()) {
                             is NavigationCommand.To -> {
                                 findNavController().navigate(command.direction)
                             }

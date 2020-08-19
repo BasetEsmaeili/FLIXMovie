@@ -1,8 +1,8 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("android.extensions")
-    id("androidx.navigation.safeargs.kotlin")
+    id(Dependencies.Plugins.androidApplication)
+    kotlin(Dependencies.Plugins.android)
+    kotlin(Dependencies.Plugins.androidExtensions)
+    id(Dependencies.Plugins.navigationSafeArgs)
     id(Dependencies.BuildPlugins.ktlint)
 }
 
@@ -11,19 +11,19 @@ android {
     buildToolsVersion(Dependencies.Android.buildToolsVersion)
 
     defaultConfig {
-        applicationId = Dependencies.Android.applicationId
+        applicationId = Dependencies.Project.applicationId
         minSdkVersion(Dependencies.Android.minSdkVersion)
         targetSdkVersion(Dependencies.Android.targetSdkVersion)
-        versionCode = Dependencies.Android.versionCode
-        versionName = Dependencies.Android.versionName
+        versionCode = Dependencies.Project.versionCode
+        versionName = Dependencies.Project.versionName
     }
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = Dependencies.Project.isMinifyEnabled
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(Dependencies.ProGuards.proguardAndroidOptimize),
+                Dependencies.ProGuards.proguardDefault
             )
         }
     }
